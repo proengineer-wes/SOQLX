@@ -24,11 +24,11 @@
 #import "SoqlToken.h"
 #import "Completion.h"
 
-const NSString *KeyTokens = @"tokens";
-const NSString *KeySoqlText = @"soql";
+static NSString * const KeyTokens = @"tokens";
+static NSString * const KeySoqlText = @"soql";
 
-NSString *KeyPosition = @"Position";
-NSString *KeyCompletions = @"Completions";
+static NSString * const KeyPosition = @"Position";
+static NSString * const KeyCompletions = @"Completions";
 
 
 @interface SoqlParser()
