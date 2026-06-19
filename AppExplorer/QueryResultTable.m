@@ -419,6 +419,20 @@ const NSInteger DEF_ID_WIDTH = 165;
         }
         // Sort the updates by smallest additional amount to largest additional amount
         // TODO: do we want to try and restrict this to just columns that are visible initially?
+        CGFloat visibleWidth = self->table.visibleRect.size.width;
+        CGFloat usedWidth = 0;
+        NSMutableArray<ColumnResult*> *visibleResize = [NSMutableArray array];
+
+        for (ColumnResult *col in resize) {
+            usedWidth += col.width;
+            if (usedWidth <= visibleWidth) {
+                [visibleResize addObject:col];
+            }
+        }
+
+        if (visibleResize.count > 0) {
+            resize = visibleResize;
+        }
         [resize sortUsingComparator:^NSComparisonResult(ColumnResult*  _Nonnull obj1, ColumnResult*  _Nonnull obj2) {
             CGFloat a = sizer(obj1) - obj1.width;
             CGFloat b = sizer(obj2) - obj2.width;
