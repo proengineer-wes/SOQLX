@@ -466,11 +466,7 @@ const NSInteger DEF_ID_WIDTH = 165;
 }
 
 -(NSFont*)tableCellFont {
-    // TODO, better answer to this?
-    NSTableColumn *dummy = [[NSTableColumn alloc] init];
-    NSCell *dummyCell = dummy.dataCell;
-    NSFont *font = dummyCell.font;
-    return font;
+    return [NSFont systemFontOfSize:[NSFont systemFontSize]];
 }
 
 @end
