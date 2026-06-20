@@ -662,13 +662,14 @@ typedef NSMutableDictionary<NSString *, Completion*> CompletionBySObject;
 }
 
 -(Context*)resolveFrom:(Tokens*)tokens parentCtx:(Context*)parentCtx {
-    __block NSUInteger skipUntil = 0;
+    // Tracks the end position of nested child select tokens.
+    __block NSUInteger childSelectEndPosition = 0;
     NSInteger idx = [tokens.tokens indexOfObjectPassingTest:^BOOL(Token * _Nonnull t, NSUInteger idx, BOOL * _Nonnull stop) {
         // TODO, this skip shouldn't be needed now that the tokens are moved into a child collection
         if (t.type == TTChildSelect) {
-            skipUntil = t.loc.location + t.loc.length;
+            childSelectEndPosition = t.loc.location + t.loc.length;
         }
-        return (t.loc.location >= skipUntil) && (t.type == TTSObject);
+        return (t.loc.location >= childSelectEndPosition) && (t.type == TTSObject);
     }];
     Context *ctx = [Context new];
     ctx.aliases = [AliasMap new];
