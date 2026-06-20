@@ -89,9 +89,10 @@ ZKResultMapper toToken(TokenType type) {
     }
     f.defaultCaseSensitivity = ZKCaseInsensitive;
     
-    ZKBaseParser* ws = [f characters:[NSCharacterSet whitespaceAndNewlineCharacterSet] name:@"whitespace" min:1];
+    NSCharacterSet *whitespaceAndNewline = [NSCharacterSet whitespaceAndNewlineCharacterSet];
+    ZKBaseParser* ws = [f characters:whitespaceAndNewline name:@"whitespace" min:1];
     f.whitespace = ws;
-    ZKBaseParser* maybeWs = [f characters:[NSCharacterSet whitespaceAndNewlineCharacterSet] name:@"whitespace" min:0];
+    ZKBaseParser* maybeWs = [f characters:whitespaceAndNewline name:@"whitespace" min:0];
     f.maybeWhitespace = maybeWs;
     ZKBaseParser* cut = [f cut];
     
