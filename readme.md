@@ -1,18 +1,27 @@
-## Build
+# SOQLX
 
-ZKSforce and Sparkle are managed via [CocoaPods](https://cocoapods.org), and Fragaria is pulled in via git submodules.
+SOQLX is a macOS desktop application for working with Salesforce data, SOQL queries, and Apex tools.
 
-### Requirements
+## Features
+
+- Browse Salesforce objects and fields
+- Write and run SOQL queries
+- View Salesforce records in a desktop UI
+- Work with Apex-related tooling
+- Manage Salesforce development workflows from macOS
+
+## Requirements
 
 - macOS 12 or later
 - Xcode 13.4 or later
 - CocoaPods
+- Git submodules enabled
 
-### Setup
+## Setup
 
 Clone the repository with submodules:
 
 ```bash
 git clone --recurse-submodules https://github.com/proengineer-wes/SOQLX.git
-cd SoqlX
+cd SOQLX
 pod install
