@@ -45,6 +45,7 @@ NSString *tokenName(TokenType type) {
         case TTLiteralNumber:return @"Number";
         case TTLiteralDate: return @"Date";
         case TTLiteralDateTime:return @"DateTime";
+        case TTLiteralTime: return @"Time";
         case TTLiteralNamedDateTime:return @"NamedDateTime";
         case TTLiteralBoolean: return @"Boolean";
         case TTLiteralNull: return @"Null";

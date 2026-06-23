@@ -619,6 +619,24 @@ ZKResultMapper toToken(TokenType type) {
         r.val = t;
         return r;
     }];
+
+    NSRegularExpression *timeLiteral =
+        [NSRegularExpression regularExpressionWithPattern:@"\\d\\d:\\d\\d:\\d\\d(?:\\.\\d\\d\\d)?Z"
+                                                options:NSRegularExpressionCaseInsensitive
+                                                    error:&err];
+
+    NSAssert(err == nil, @"failed to compile regex %@", err);
+
+    ZKBaseParser *literalTimeValue =
+        [self onMatch:[self regex:timeLiteral name:@"time literal"]
+            perform:^ZKParserResult *(ZKParserResult *r) {
+
+            Token *t = [Token txt:r.userContext[KeySoqlText] loc:r.loc];
+            t.type = TTLiteralTime;
+            t.value = r.val;
+            r.val = t;
+            return r;
+    }];
     NSRegularExpression *currency = [NSRegularExpression regularExpressionWithPattern:@"[a-z]{3}\\d+(?:\\.\\d+)?"
                                                                            options:NSRegularExpressionCaseInsensitive
                                                                              error:&err];
@@ -643,7 +661,7 @@ ZKResultMapper toToken(TokenType type) {
         return r;
     }];
     ZKBaseParser *literalValue = [self onMatch:[self firstOf:@[literalStringValue, literalNullValue, literalTrueValue, literalFalseValue,
-                                                               literalDateTimeValue, literalNumberValue, literalCurrency, literalToken]]
+                                                               literalDateTimeValue, literalNumberValue, literalCurrency, literalToken, literalTimeValue]]
                                        perform:^ZKParserResult *(ZKParserResult *r) {
             [r.userContext[KeyTokens] addToken:r.val];
             return r;

@@ -45,12 +45,13 @@ typedef NS_OPTIONS(uint32_t, TokenType) {
     TTLiteralNumber     = 1 << 19,
     TTLiteralDate       = 1 << 20,
     TTLiteralDateTime   = 1 << 21,
-    TTLiteralNamedDateTime= 1 << 22,
-    TTLiteralBoolean    = 1 << 23,
-    TTLiteralNull       = 1 << 24,
-    TTLiteralCurrency   = 1 << 25,
-    TTListViewName      = 1 << 26,
-    TTError             = 1 << 27,
+    TTLiteralTime = 1 << 22,
+    TTLiteralNamedDateTime = 1 << 23,
+    TTLiteralBoolean = 1 << 24,
+    TTLiteralNull = 1 << 25,
+    TTLiteralCurrency = 1 << 26,
+    TTListViewName = 1 << 27,
+    TTError = 1 << 28,
 };
 
 NSString *tokenName(TokenType type);
