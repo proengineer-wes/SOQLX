@@ -1,31 +1,36 @@
 ---
+
 name: Bug report
-about: Create a report to help us improve
-title: ''
+about: Report a problem or unexpected behavior
+title: "[Bug] "
 labels: bug
-assignees: ''
+assignees: ""
+-------------
 
----
+## Description
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+Provide a clear and concise description of the issue.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## Steps To Reproduce
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+1.
+2.
+3.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Expected Behavior
 
-**Desktop (please complete the following information):**
- - OS: [e.g. OSX 10.14]
- - SoqlX Version [e.g. 3.1]
+Describe what should happen.
 
-**Additional context**
-Add any other context about the problem here.
+## Actual Behavior
+
+Describe what actually happens.
+
+## Environment
+
+* macOS:
+* Xcode:
+* SOQLX Version:
+
+## Additional Context
+
+Add any other context, screenshots, or logs here.
