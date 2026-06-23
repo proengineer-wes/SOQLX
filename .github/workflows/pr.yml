@@ -4,7 +4,7 @@ on: [pull_request]
 
 jobs:
   Build:
-    runs-on: macos-12
+    runs-on: macos-13
     timeout-minutes: 7
     steps:
       - name: "Setup Xcode 13.4"
@@ -12,7 +12,7 @@ jobs:
         with:
             xcode-version: '13.4'
       - name: "Checkout Project"
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
             submodules: recursive
       - name: "Cocoapods setup"
